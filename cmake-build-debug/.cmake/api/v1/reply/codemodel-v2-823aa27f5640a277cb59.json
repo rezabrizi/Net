@@ -9,7 +9,7 @@
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.27"
+						"string" : "3.26"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Net::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Net-Debug-150e8561de3f75d3ccb4.json",
+					"jsonFile" : "target-Net-Debug-41fa9ad43dce7964a021.json",
 					"name" : "Net",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/rezatabrizi/CLionProjects/Net/cmake-build-debug",
-		"source" : "/Users/rezatabrizi/CLionProjects/Net"
+		"build" : "/Users/rezatabrizi/dev/CLionProjects/Net/cmake-build-debug",
+		"source" : "/Users/rezatabrizi/dev/CLionProjects/Net"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 5
 	}
 }
