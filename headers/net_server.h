@@ -32,9 +32,9 @@ namespace net
 
             try
             {
-                WaitForClientConnect();
+                WaitForClientConnection();
 
-                m_threadContext = std::thread([this]() {m_asioContext.run(); });
+                m_threadContext = std::thread([this]() { m_asioContext.run(); });
             }
             catch (std::exception& e)
             {
@@ -59,11 +59,11 @@ namespace net
         }
 
 
-        void WaitForClientConnect()
+        void WaitForClientConnection()
         {
 
             m_asioAcceptor.async_accept(
-                    [this](std::error_code ec, asio::ip::tcp::socket socket)
+                    [this](asio::error_code ec, asio::ip::tcp::socket socket)
                     {
                         if (!ec)
                         {
@@ -77,14 +77,14 @@ namespace net
                             if (OnClientConnect(newconn))
                             {
                                 m_deqConnections.push_back(std::move(newconn));
-                            }
-                            else
-                            {
-                                std::cout << "[----] Connection Denied\n";
 
                                 m_deqConnections.back()->ConnectToClient(nIDCounter++);
 
                                 std::cout << "[" << m_deqConnections.back()->GetID() << "] Connection Approved\n";
+                            }
+                            else
+                            {
+                                std::cout << "[----] Connection Denied\n";
                             }
 
 
@@ -94,7 +94,7 @@ namespace net
                             std::cout << "[SERVER] New Connection Error: " << ec.message() << "\n";
                         }
 
-                        WaitForClientConnect();
+                        WaitForClientConnection();
                     });
         }
 
@@ -136,8 +136,10 @@ namespace net
 
         }
 
-        void Update (size_t nMaxMessages = -1)
+        void Update (size_t nMaxMessages = -1, bool bWait = false)
         {
+            if (bWait) m_qMessagesIn.wait();
+
             size_t nMessageCount = 0;
             while (nMessageCount < nMaxMessages && !m_qMessagesIn.empty())
             {
@@ -177,7 +179,6 @@ namespace net
         asio::ip::tcp::acceptor m_asioAcceptor;
 
         uint32_t nIDCounter = 10000;
-
 
     };
 }

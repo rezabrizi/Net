@@ -46,7 +46,7 @@ namespace net
                 std::cerr << "Client Exception: " << e.what() << "\n";
                 return false;
             }
-            return false;
+            return true;
         }
 
         void Diconnect()
@@ -83,9 +83,11 @@ namespace net
             return m_qMessagesIn;
         }
 
-
-
-
+        void Send(const message<T>& msg)
+        {
+            if (IsConnected())
+                m_connection->Send(msg);
+        }
 
     protected:
         asio::io_context m_context;

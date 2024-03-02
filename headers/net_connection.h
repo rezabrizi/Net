@@ -41,14 +41,13 @@ namespace net
             {
                 if (m_socket.is_open())
                 {
-                    std::cout << "trying to connect to the  client " << std::endl;
                     id = uid;
                     ReadHeader();
                 }
             }
         }
 
-        bool ConnectToServer(const asio::ip::tcp::resolver::results_type & endpoints)
+        void ConnectToServer(const asio::ip::tcp::resolver::results_type & endpoints)
         {
             if (m_nOwnerType == owner::client)
             {
@@ -61,11 +60,10 @@ namespace net
                         }
                     });
             }
-
         }
 
 
-        bool Disconnect()
+        void Disconnect()
         {
             asio::post(m_asioContext, [this]() { m_socket.close(); });
         }
@@ -74,7 +72,7 @@ namespace net
             return m_socket.is_open();
         }
 
-        bool Send(const message<T>& msg)
+        void Send(const message<T>& msg)
         {
             asio::post(m_asioContext,
                [this, msg]()
@@ -91,9 +89,8 @@ namespace net
     private:
         void ReadHeader()
         {
-            std::cout << "trying to read the header " << std::endl;
             asio::async_read(m_socket, asio::buffer(&m_msgTemporaryIn.header, sizeof(message_header<T>)),
-                [this](std::error_code ec, std::size_t length)
+                [this](asio::error_code ec, std::size_t length)
                 {
                     if(!ec)
                     {
@@ -106,7 +103,6 @@ namespace net
                         {
                             AddToIncomingMessageQueue();
                         }
-
                     }
                     else
                     {
@@ -119,7 +115,7 @@ namespace net
         void ReadBody()
         {
             asio::async_read(m_socket, asio::buffer(m_msgTemporaryIn.body.data(), m_msgTemporaryIn.body.size()),
-                [this](std::error_code ec, std::size_t length){
+                [this](asio::error_code ec, std::size_t length){
                     if (!ec)
                     {
                         AddToIncomingMessageQueue();
@@ -130,14 +126,13 @@ namespace net
                         m_socket.close();
                     }
             });
-
         }
 
         void WriteHeader()
         {
 
-            asio::async_write(m_socket, asio::buffer(&m_qMessagesOut.front().header(), sizeof(message_header<T>)),
-                  [this](std::error_code ec, std::size_t length)
+            asio::async_write(m_socket, asio::buffer(&m_qMessagesOut.front().header, sizeof(message_header<T>)),
+                  [this](asio::error_code ec, std::size_t length)
                   {
                     if (!ec)
                     {
@@ -167,7 +162,7 @@ namespace net
         void WriteBody()
         {
             asio::async_write(m_socket, asio::buffer(m_qMessagesOut.front().body.data(), m_qMessagesOut.front().body.size()),
-                  [this](std::error_code ec, std::size_t length)
+                  [this](asio::error_code ec, std::size_t length)
                   {
                     if (!ec)
                     {
