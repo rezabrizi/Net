@@ -41,6 +41,7 @@ namespace net
             {
                 if (m_socket.is_open())
                 {
+                    std::cout << "trying to connect to the  client " << std::endl;
                     id = uid;
                     ReadHeader();
                 }
@@ -90,6 +91,7 @@ namespace net
     private:
         void ReadHeader()
         {
+            std::cout << "trying to read the header " << std::endl;
             asio::async_read(m_socket, asio::buffer(&m_msgTemporaryIn.header, sizeof(message_header<T>)),
                 [this](std::error_code ec, std::size_t length)
                 {
