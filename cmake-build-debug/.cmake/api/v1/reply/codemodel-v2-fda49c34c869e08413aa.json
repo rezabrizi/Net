@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Net::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Net-Debug-41fa9ad43dce7964a021.json",
+					"jsonFile" : "target-Net-Debug-f5ccb17193f2aa96a45b.json",
 					"name" : "Net",
 					"projectIndex" : 0
 				}
@@ -55,6 +55,6 @@
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 5
 	}
 }

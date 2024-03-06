@@ -80,25 +80,25 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/headers/net.h">
+		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/include/net.h">
 			<Option target="Net"/>
 		</Unit>
-		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/headers/net_client.h">
+		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/include/net_client.h">
 			<Option target="Net"/>
 		</Unit>
-		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/headers/net_common.h">
+		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/include/net_common.h">
 			<Option target="Net"/>
 		</Unit>
-		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/headers/net_connection.h">
+		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/include/net_connection.h">
 			<Option target="Net"/>
 		</Unit>
-		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/headers/net_message.h">
+		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/include/net_message.h">
 			<Option target="Net"/>
 		</Unit>
-		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/headers/net_server.h">
+		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/include/net_server.h">
 			<Option target="Net"/>
 		</Unit>
-		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/headers/net_tsqueue.h">
+		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/include/net_tsqueue.h">
 			<Option target="Net"/>
 		</Unit>
 		<Unit filename="/Users/rezatabrizi/dev/CLionProjects/Net/main.cpp">

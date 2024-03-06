@@ -137,37 +137,37 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/net_common.h",
+			"path" : "include/net_common.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/net_server.h",
+			"path" : "include/net_server.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/net_client.h",
+			"path" : "include/net_client.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/net_tsqueue.h",
+			"path" : "include/net_tsqueue.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/net_message.h",
+			"path" : "include/net_message.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/net.h",
+			"path" : "include/net.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/net_connection.h",
+			"path" : "include/net_connection.h",
 			"sourceGroupIndex" : 1
 		}
 	],

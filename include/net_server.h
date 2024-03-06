@@ -69,12 +69,14 @@ namespace net
                         {
                             std::cout << "[SERVER] New Connection: " << socket.remote_endpoint() << "\n";
 
+                            auto client_ip = socket.remote_endpoint().address().to_string();
+
                             std::shared_ptr<connection<T>> newconn =
                                     std::make_shared<connection<T>>(connection<T>::owner::server,
                                             m_asioContext, std::move(socket), m_qMessagesIn);
 
 
-                            if (OnClientConnect(newconn))
+                            if (OnClientConnect(newconn, client_ip))
                             {
                                 m_deqConnections.push_back(std::move(newconn));
 
@@ -150,7 +152,7 @@ namespace net
         }
 
     protected:
-        virtual bool OnClientConnect(std::shared_ptr<connection<T>> client)
+        virtual bool OnClientConnect(std::shared_ptr<connection<T>> client, std::string ip)
         {
             return true;
         }
