@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_compile_definitions(ASIO_STANDALONE)
 
-add_executable(Net main.cpp
+add_executable(Net
         include/net_common.h
         include/net_server.h
         include/net_client.h
